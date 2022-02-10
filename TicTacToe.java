@@ -66,12 +66,16 @@ public class TicTacToe extends Canvas {
         return columns
     }
     //canPlay
-    public static void canPlay(String[] args) {
+    public static void canPlay(int board, int row, int column) (String[] args) {
+        if (board[row][column]==EMPTY){
+            return boolean True
+        }
 
     }
     //play
-    public static void play(String[] args) {
-
+    public static void play(int board, int row, int column, int piece)(String[] args) {
+        board[row][column]=piece;
+        return null
     }
     //full
     public static void full(String[] args) {
