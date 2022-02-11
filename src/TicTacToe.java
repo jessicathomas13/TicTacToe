@@ -91,16 +91,26 @@ public class TicTacToe extends Canvas {
         }
 
     }
-    //wininRow
-    public static boolean wininRow(int[][] board, int row, int piece) {
-
+    //winInRow
+    public static boolean winInRow(int[][] board, int row, int piece) {
+        int[] r=board[row];
+        for (int c=0; c<r.length-2; c++){
+            if (r[c]==piece && r[c++]==piece && r[c+2]==piece){
+                return true;
+            }
+        } return false;
     }
     //winInColumn
-    public static boolean wininColumn() {
-
+    public static boolean winInColumn(int[][] board, int column, int piece) {
+        for (int r=0; r<board.length-2; r++){
+            if (board[r][column]==piece && board[r++][column]==piece && board[r+2][column]==piece){
+                return true;
+            }
+        } return false;
     }
     //winInDiagonalBS
-    public static boolean winInDiagonalBS() {
+    public static boolean winInDiagonalBS(int[][] board, int piece) {
+
 
     }
     //winInDigonalFS
