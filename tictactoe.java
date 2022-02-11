@@ -40,14 +40,14 @@ public class TicTacToe extends Canvas {
 
     //Put your code here
     //createBoard
-    public static void createBoard(int rows, int columns)(String[] args) {
+    public static void createBoard(int rows, int columns) {
         int[][] board=new int [rows][columns];
         return board;
 
 
     }
     //rowsIn
-    public static void rowsIn(int board)(String[] args){
+    public static void rowsIn(int board){
         int rows=0;
         for(int []:board){
             rows+=1;
@@ -57,7 +57,7 @@ public class TicTacToe extends Canvas {
 
     }
     //columnsIn
-    public static void columnsIn(int board)(String[] args) {
+    public static void columnsIn(int board) {
         int[] k=board[0];
         int columns=0;
         for (int []:k){
@@ -66,38 +66,41 @@ public class TicTacToe extends Canvas {
         return columns
     }
     //canPlay
-    public static void canPlay(int board, int row, int column) (String[] args) {
+    public static void canPlay(int board, int row, int column)  {
         if (board[row][column]==EMPTY){
             return boolean True
         }
 
     }
     //play
-    public static void play(int board, int row, int column, int piece)(String[] args) {
+    public static void play(int board, int row, int column, int piece) {
         board[row][column]=piece;
         return null
     }
     //full
-    public static void full(String[] args) {
+    public static void full(int board) {
 
     }
     //wininRow
-    public static void wininRow(String[] args) {
+    public static void wininRow() {
 
     }
     //winInColumn
-    public static void wininColumn(String[] args) {
+    public static void wininColumn() {
 
     }
     //winInDiagonalBS
-    public static void winInDiagonalBS(String[] args) {
+    public static void winInDiagonalBS() {
 
     }
     //winInDigonalFS
-    public static void winInDiagonalFS(String[] args) {
+    public static void winInDiagonalFS() {
 
     }
     //hint
+    public static void hint() {
+
+    }
 
     //The following are completed for you already
 
