@@ -40,65 +40,75 @@ public class TicTacToe extends Canvas {
 
     //Put your code here
     //createBoard
-    public static void createBoard(int rows, int columns) {
+    public static int[][] createBoard(int rows, int columns) {
         int[][] board=new int [rows][columns];
         return board;
 
 
     }
     //rowsIn
-    public static void rowsIn(int board){
+    public static int rowsIn(int[][] board){
         int rows=0;
-        for(int []:board){
+        for(int []j:board){
             rows+=1;
         }
-        return rows
+        return rows;
 
 
     }
     //columnsIn
-    public static void columnsIn(int board) {
+    public static int columnsIn(int[][] board) {
         int[] k=board[0];
         int columns=0;
-        for (int []:k){
-            columns+=1
+        for (int j:k){
+            columns+=1;
         }
-        return columns
+        return columns;
     }
     //canPlay
-    public static void canPlay(int board, int row, int column)  {
-        if (board[row][column]==EMPTY){
-            return boolean True
+    public static boolean canPlay(int[][] board, int row, int column) {
+        if (board[row][column] == EMPTY) {
+            return true;
         }
-
     }
     //play
-    public static void play(int board, int row, int column, int piece) {
-        board[row][column]=piece;
-        return null
+    public static void play(int[][] board, int row, int column, int piece) {
+        board[row][column] = piece;
     }
     //full
-    public static void full(int board) {
+    public static boolean full(int[][] board) {
+        int a=0;
+        for (int row=0; row<board.length; row++){
+            for (int column=0; column<board.length; column++){
+                if (board[row][column]!=EMPTY){
+                    a++;
+                }
+            }
+        }if (a!=0){
+            return true;
+        }else{
+            return false;
+        }
 
     }
     //wininRow
-    public static void wininRow() {
+    public static boolean wininRow() {
 
     }
     //winInColumn
-    public static void wininColumn() {
+    public static boolean wininColumn() {
 
     }
     //winInDiagonalBS
-    public static void winInDiagonalBS() {
+    public static boolean winInDiagonalBS() {
 
     }
     //winInDigonalFS
-    public static void winInDiagonalFS() {
+    public static boolean winInDiagonalFS() {
 
     }
     //hint
-    public static void hint() {
+    public static int[] hint() {
 
     }
 
