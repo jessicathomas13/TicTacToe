@@ -92,7 +92,7 @@ public class TicTacToe extends Canvas {
 
     }
     //wininRow
-    public static boolean wininRow() {
+    public static boolean wininRow(int[][] board, int row, int piece) {
 
     }
     //winInColumn
