@@ -70,6 +70,7 @@ public class TicTacToe extends Canvas {
         if (board[row][column] == EMPTY) {
             return true;
         }
+        return false;
     }
     //play
     public static void play(int[][] board, int row, int column, int piece) {
@@ -77,25 +78,19 @@ public class TicTacToe extends Canvas {
     }
     //full
     public static boolean full(int[][] board) {
-        int a=0;
-        for (int row=0; row<board.length; row++){
-            for (int column=0; column<board.length; column++){
-                if (board[row][column]!=EMPTY){
-                    a++;
+        for (int row=0; row<board.length; row++) {
+            for (int column = 0; column < board.length; column++) {
+                if (board[row][column] == EMPTY) {
+                    return false;
                 }
             }
-        }if (a!=0){
-            return true;
-        }else{
-            return false;
-        }
-
+        }return true;
     }
     //winInRow
     public static boolean winInRow(int[][] board, int row, int piece) {
         int[] r=board[row];
         for (int c=0; c<r.length-2; c++){
-            if (r[c]==piece && r[c++]==piece && r[c+2]==piece){
+            if (r[c]==piece && r[c+1]==piece && r[c+2]==piece){
                 return true;
             }
         } return false;
@@ -121,10 +116,19 @@ public class TicTacToe extends Canvas {
     }
     //winInDigonalFS
     public static boolean winInDiagonalFS(int[][] board, int piece) {
-
+        int c=board.length-1;
+        for (int r=0;r<board.length-2; r++){
+            if (board[r][c]==piece && board[r+1][c-1]==piece && board[r+2][c-2]==piece){
+                return true;
+            }
+        } return false;
     }
     //hint
     public static int[] hint(int[][] board, int piece) {
+        int[]r= new int[2];
+        r[0]=-1;
+        r[1]=-1;
+        return r;
 
     }
 
