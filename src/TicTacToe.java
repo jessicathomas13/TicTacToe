@@ -6,6 +6,10 @@ import java.math.*;
 import java.util.*;
 import java.util.List;
 
+//Name: Jessica Sarah Thomas
+//Date: 11th February, 2022
+//Tutorial no: 7
+
 /**
  * A Class for a Modified Tic Tac Toe game
  * (for GUI purposes this class extends Canvas for drawing loop)
@@ -39,7 +43,14 @@ public class TicTacToe extends Canvas {
      * ---------------------------------------------------------------------------------------------------------- */
 
     //Put your code here
+
     //createBoard
+    /**
+     * Creates a tictactoe board in the dimensions inputted by the user
+     * @param rows number of rows of the board
+     * @param columns number of columns of the board
+     * @return the tictactoe board
+     */
     public static int[][] createBoard(int rows, int columns) {
         int[][] board=new int [rows][columns];
         return board;
@@ -47,6 +58,11 @@ public class TicTacToe extends Canvas {
 
     }
     //rowsIn
+    /**
+     * Counts the number of rows in the tictactoe board
+     * @param board the tictactoe board
+     * @return number of rows
+     */
     public static int rowsIn(int[][] board){
         int rows=0;
         for(int []j:board){
@@ -57,6 +73,12 @@ public class TicTacToe extends Canvas {
 
     }
     //columnsIn
+    /**
+     * Counts the number of columns in the tictactoe board
+     * @param board the tictactoe board
+     * @return number of columns
+     */
+
     public static int columnsIn(int[][] board) {
         int[] k=board[0];
         int columns=0;
@@ -66,17 +88,39 @@ public class TicTacToe extends Canvas {
         return columns;
     }
     //canPlay
+    /**
+     * Can the player play at the location
+     * @param board the tictactoe board
+     * @param row row index
+     * @param column column index
+     * @return True if the location in the board is empty and false if it isn't
+     */
     public static boolean canPlay(int[][] board, int row, int column) {
         if (board[row][column] == EMPTY) {
             return true;
         }
         return false;
     }
+
     //play
+    /**
+     * Plays by assigning the player's piece to the selected location
+     * @param board the tictactoe board
+     * @param row row index
+     * @param column column index
+     * @param piece the player's piece (X/O)
+     */
     public static void play(int[][] board, int row, int column, int piece) {
         board[row][column] = piece;
     }
+
     //full
+
+    /**
+     * Checks whether the board is completely filled
+     * @param board the tictactoe board
+     * @return True if the board is completely filled else false
+     */
     public static boolean full(int[][] board) {
         for (int row=0; row<board.length; row++) {
             for (int column = 0; column < board.length; column++) {
@@ -86,7 +130,16 @@ public class TicTacToe extends Canvas {
             }
         }return true;
     }
+
     //winInRow
+
+    /**
+     * Checks row-wise whether the given piece is found in 3 consecutive entries
+     * @param board the tictactoe board
+     * @param row row index
+     * @param piece the player's piece (X/O)
+     * @return True if there is 3 consecutive entries which have the same given piece, in a row, otherwise false
+     */
     public static boolean winInRow(int[][] board, int row, int piece) {
         int[] r=board[row];
         for (int c=0; c<r.length-2; c++){
@@ -95,7 +148,16 @@ public class TicTacToe extends Canvas {
             }
         } return false;
     }
+
     //winInColumn
+
+    /**
+     * Checks column-wise whether the given piece is found in 3 consecutive entries
+     * @param board the tictactoe board
+     * @param column column index
+     * @param piece the player's piece (X/O)
+     * @return True if there is 3 consecutive entries which have the same given piece, in a column, otherwise false
+     */
     public static boolean winInColumn(int[][] board, int column, int piece) {
         for (int r=0; r<board.length-2; r++) {
             if (board[r][column] == piece && board[r + 1][column] == piece && board[r + 2][column] == piece) {
@@ -106,6 +168,13 @@ public class TicTacToe extends Canvas {
         } return false;
     }
     //winInDiagonalBS
+
+    /**
+     * Checks whether the given piece is there in 3 consecutive entries of each backward slash (\) diagonal
+     * @param board the tictactoe board
+     * @param piece the player's piece (X/O)
+     * @return True if the given piece is there in atleast 3 consecutive entries of a backward slash diagonal, else false
+     */
     public static boolean winInDiagonalBS(int[][] board, int piece) {
         for (int r=0; r<board.length-2; r++){
             for (int c=1; c<board.length; c++) {
@@ -119,6 +188,13 @@ public class TicTacToe extends Canvas {
 
     }
     //winInDigonalFS
+
+    /**
+     * Checks whether the given piece is there in 3 consecutive entries of each forward slash (/) diagonal
+     * @param board the tictactoe board
+     * @param piece the player's piece (X/O)
+     * @return True if the given piece is there in atleast 3 consecutive entries of a forward slash diagonal, else false
+     */
     public static boolean winInDiagonalFS(int[][] board, int piece) {
         for (int r=0; r<board.length-2; r++){
             for (int c=0; c<board.length-2;c++){
@@ -132,6 +208,13 @@ public class TicTacToe extends Canvas {
     }
 
     //hint
+
+    /**
+     * Provides the player with a hint
+     * @param board the tictactoe board
+     * @param piece the player's piece (X/O)
+     * @return location on the board for the player to win
+     */
     public static int[] hint(int[][] board, int piece) {
         int[]r= new int[2];
         r[0]=-1;
