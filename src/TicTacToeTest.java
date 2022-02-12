@@ -101,9 +101,10 @@ class TicTacToeTest {
     @Test
     void play() {
         int[][] board={{1, 0, 0}, {0, 2, 0}, {0, 0, 0}};
-        int row=2;
+        int row=0;
         int column=0;
         int piece=1;
+        assertEquals(piece, TicTacToe.canPlay(board, row, column));
 
     }
 
@@ -194,10 +195,40 @@ class TicTacToeTest {
     }
 
     @Test
+    void winInDiagonalBS1() {
+        int[][] board={{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+        int piece=1;
+        assertEquals(false,TicTacToe.winInDiagonalBS(board,piece));
+
+    }
+
+    @Test
+    void winInDiagonalBS2() {
+        int[][] board={{0, 0, 1}, {0, 1, 0}, {1, 0, 0}};
+        int piece=1;
+        assertEquals(true,TicTacToe.winInDiagonalBS(board,piece));
+
+    }
+
+    @Test
     void winInDiagonalFS() {
         int[][] board={{1, 0, 0}, {0, 2, 0}, {0, 0, 0}};
         int piece=2;
         assertEquals(false,TicTacToe.winInDiagonalFS(board,piece));
+    }
+
+    @Test
+    void winInDiagonalFS1() {
+        int[][] board={{0, 0, 1}, {0, 1, 0}, {1, 0, 0}};
+        int piece=1;
+        assertEquals(false,TicTacToe.winInDiagonalFS(board,piece));
+    }
+
+    @Test
+    void winInDiagonalFS2() {
+        int[][] board={{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+        int piece=1;
+        assertEquals(false,TicTacToe.winInDiagonalBS(board,piece));
     }
 
     @Test
