@@ -97,32 +97,39 @@ public class TicTacToe extends Canvas {
     }
     //winInColumn
     public static boolean winInColumn(int[][] board, int column, int piece) {
-        for (int r=0; r<board.length-2; r++){
-            if (board[r][column]==piece && board[r+1][column]==piece && board[r+2][column]==piece){
+        for (int r=0; r<board.length-2; r++) {
+            if (board[r][column] == piece && board[r + 1][column] == piece && board[r + 2][column] == piece) {
                 return true;
+
+
             }
         } return false;
     }
     //winInDiagonalBS
     public static boolean winInDiagonalBS(int[][] board, int piece) {
-        int c=0;
         for (int r=0; r<board.length-2; r++){
-            if (board[r][c]==piece && board[r+1][c+1]==piece && board[r+2][c+2]==piece){
-                return true;
+            for (int c=0; c<board.length-1;c++){
+                if (board[r][c]==piece && board[r+1][c+1]==piece && board[r+2][c+2]==piece){
+                    return true;
+                }
 
-            } c++;
-        } return false;
+            }
 
+        }return false;
     }
     //winInDigonalFS
     public static boolean winInDiagonalFS(int[][] board, int piece) {
-        int c=board.length-1;
-        for (int r=0;r<board.length-2; r++){
-            if (board[r][c]==piece && board[r+1][c-1]==piece && board[r+2][c-2]==piece){
-                return true;
+        for (int r=0; r<board.length-2; r++){
+            for (int c=0; c<board.length; c++) {
+                if (board[r][c]==piece && board[r+1][c-1]==piece && board[r+2][c-2]==piece){
+                    return true;
+
+                }
             }
         } return false;
+
     }
+
     //hint
     public static int[] hint(int[][] board, int piece) {
         int[]r= new int[2];
